@@ -1,4 +1,4 @@
-# Netflix GPT
+# Stream GPT
 
 - Create React App (CRA)
 - Tailwind css
