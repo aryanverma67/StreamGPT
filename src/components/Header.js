@@ -48,7 +48,7 @@ const Header = () => {
   return (
     <div className="flex item-center   justify-between w-screen absolute px-8 py-1 background bg-gradient-to-b from-black z-10"> 
           <div>
-          <h1 className="text-[#e50914]  text-5xl mt-7 font-bold"> StreamGPT</h1>
+          <h1 className="text-[#e50914]  text-3xl mt-7 font-bold"> StreamGPT</h1>
           </div>
          { user && <div className="flex gap-10 mt-6 items-center">
           <img className="w-9 h-9 rounded-full " src={USER_AVATAR} alt="photoURL" />

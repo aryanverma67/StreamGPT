@@ -13,8 +13,8 @@ const MovieList = ({ title, movies }) => {
         {movies?.map(movie => (
         <MovieCard key={movie.id} poster_path={movie.poster_path}/>
         ) )}
-        
       </div>
+
       </div>
 
     </div>
