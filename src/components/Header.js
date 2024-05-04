@@ -4,14 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/slices/userSlice";
-import { USER_AVATAR } from "../utils/constants";
-
+import { SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
+import { ToggleGptSearchView } from "../utils/slices/Gptslice";
+import lang from "../utils/Languageconstants";
+import { changeLanguage } from "../utils/slices/ConfigSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   const handleSignOut = () => [
     signOut(auth)
@@ -21,7 +24,6 @@ const Header = () => {
         navigate("/error");
       }),
   ];
-
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -44,23 +46,54 @@ const Header = () => {
 
     return () => unsubscribe();
   }, []);
+  const handleGptSearch = () => {
+    //toggle of information
+    dispatch(ToggleGptSearchView());
+  };
+  const handlelanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
 
   return (
-    <div className="flex item-center   justify-between w-screen absolute px-8 py-1 background bg-gradient-to-b from-black z-10"> 
-          <div>
-          <h1 className="text-[#e50914]  text-3xl mt-7 font-bold"> StreamGPT</h1>
-          </div>
-         { user && <div className="flex gap-10 mt-6 items-center">
-          <img className="w-9 h-9 rounded-full " src={USER_AVATAR} alt="photoURL" />
-          <button onClick={handleSignOut} className="text-lg mr-3 hover:bg-[#e50914] bg-transparent border font-bold px-3 py-2 rounded-2xl text-white">
+    <div className="flex item-center   justify-between w-screen absolute px-8 py-1 background bg-gradient-to-b from-black z-10">
+      <div>
+        <h1 className="text-[#e50914]  text-3xl mt-7 font-bold"> StreamGPT</h1>
+      </div>
+      {user && (
+        <div className="flex gap-10 mt-6 items-center">
+          {showGptSearch && (
+            <select
+              onChange={handlelanguageChange}
+              className="px-3 hover:bg-[#e50914] py-2 bg-transparent border text-white rounded-2xl font-semibold"
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}{" "}
+          <button
+            onClick={handleGptSearch}
+            className="w-30 bg-transparent border px-10 py-2 text-white text-lg fotn-bold rounded-2xl active:bg-[#a1179d] "
+          >
+            {showGptSearch? "HomePage":"GPt Search"}
+          </button>
+          <img
+            className="w-9 h-9 rounded-full "
+            src={USER_AVATAR}
+            alt="photoURL"
+          />
+          <button
+            onClick={handleSignOut}
+            className="text-lg mr-3 active:bg-[#e50914] bg-transparent border font-bold px-3 py-2 rounded-2xl text-white"
+          >
             Sign Out
           </button>
-
-          </div>
-}
         </div>
       )}
-  
-
+    </div>
+  );
+};
 
 export default Header;
