@@ -25,10 +25,6 @@ export const API_OPTIONS =  {
   
 
 
-  // export const SUPPORTED_LANGUAGES = [
-  //   {identifier: "en", name: "English"},
-  //   {identifier: "hindi", name: "Hindi"},
-  //   {identifier: "spanish", name: "Spanish"},
-  // ]
+  
 
-  // export const OPEN_AI_SECRET_KEY = process.env.REACT_APP_OPEN_AI_SECRET_KEY
+  export const OPEN_AI_SECRET_KEY = "sk-proj-AwDQ2y1Pj4p01C0GyYplT3BlbkFJXmvEIoU62vTTZgegqycE"
