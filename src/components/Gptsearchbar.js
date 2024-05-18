@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import openai from "../utils/openai";
 import { addGptMovieResult } from "../utils/slices/Gptslice";
 import searchMovieTMDB from "../hooks/searchMovieTMDB";
+import GPTmoviesuggsetion from "./GPTmoviesuggsetion";
 const Gptseachbar = () => {
   const dispatch = useDispatch();
   const langKey = useSelector((store) => store.config.lang);
@@ -72,6 +73,7 @@ const Gptseachbar = () => {
         </button>
         {lang[langKey].search}
       </form>
+      <GPTmoviesuggsetion/>
     </div>
   );
 };
