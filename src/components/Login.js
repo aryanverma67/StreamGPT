@@ -94,53 +94,52 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <div className="absolute ">
-        <img src={BACKGROUND_IMAGE} alt="background image" />
-      </div>
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        className="w-3/12 mt-20  absolute p-12 my-36 mx-auto right-0 left-0 bg-black bg-opacity-80 text-white rounded-xl"
-      >
-        <h1 className="font-bold text-3xl py-4">
-          {isSignInForm ? "Sign In" : "Sign Up"}
-        </h1>
-        {!isSignInForm && (
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="p-4 my-4 w-full bg-gray-800"
-          />
-        )}
-        <input
-          ref={email}
-          type="text"
-          placeholder="Email Address"
-          className="p-4 my-4 w-full bg-gray-800"
-        />
-
-        <input
-          ref={password}
-          type="password"
-          placeholder="Password"
-          className="p-4 my-4 w-full bg-gray-800"
-        />
-        <p className="text-red-500 font-bold text-lg">{errorMessage}</p>
-        <button
-          className="p-4 my-6 rounded-lg bg-red-700 w-full"
-          onClick={handleButtonClick}
-        >
-          {isSignInForm ? "Sign In" : "Sign Up"}
-        </button>
-        <p className="py-4 underline text-[#e50914] cursor-pointer" onClick={toggleSignInform}>
-          {isSignInForm
-            ? "New to StreamGPT? Sign up Now"
-            : "Already a user? Sign in Now"}
-        </p>
-      </form>
+    <div className="min-h-screen relative">
+    <Header />
+    <div className="absolute inset-0 h-full w-full">
+      <img src={BACKGROUND_IMAGE} alt="background image" className="w-full h-full object-cover" />
     </div>
-  );
+    <form
+      onSubmit={(e) => e.preventDefault()}
+      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 sm:p-10 md:p-12 lg:p-16 w-11/12 sm:w-4/12 md:w-6/12 lg:w-4/12 bg-black bg-opacity-80 text-white rounded-xl"
+    >
+      <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl py-4">
+        {isSignInForm ? "Sign In" : "Sign Up"}
+      </h1>
+      {!isSignInForm && (
+        <input
+          ref={name}
+          type="text"
+          placeholder="Full Name"
+          className="p-3 sm:p-4 my-2 sm:my-4 w-full bg-gray-800 rounded"
+        />
+      )}
+      <input
+        ref={email}
+        type="text"
+        placeholder="Email Address"
+        className="p-3 sm:p-4 my-2 sm:my-4 w-full bg-gray-800 rounded"
+      />
+      <input
+        ref={password}
+        type="password"
+        placeholder="Password"
+        className="p-3 sm:p-4 my-2 sm:my-4 w-full bg-gray-800 rounded"
+      />
+      <p className="text-red-500 font-bold text-lg">{errorMessage}</p>
+      <button
+        className="p-3 sm:p-4 my-4 sm:my-6 rounded-lg bg-red-700 w-full"
+        onClick={handleButtonClick}
+      >
+        {isSignInForm ? "Sign In" : "Sign Up"}
+      </button>
+      <p className="py-2 sm:py-4 underline text-[#e50914] cursor-pointer" onClick={toggleSignInform}>
+        {isSignInForm
+          ? "New to StreamGPT? Sign up Now"
+          : "Already a user? Sign in Now"}
+      </p>
+    </form>
+  </div>
+);
 };
-
 export default Login;

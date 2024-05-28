@@ -6,11 +6,11 @@ import { BACKGROUND_IMAGE } from '../utils/constants'
 const GptSerach = () => {
   return (
     <>
-    <div className='fixed -z-10'> 
-          <img  src = {BACKGROUND_IMAGE} alt='logo' ></img>
+    <div className='absolute -z-10 inset-0 h-full w-full '> 
+          <img src = {BACKGROUND_IMAGE} alt='logo' className='w-full h-full object-cover' ></img>
 
     </div>
-    <div>
+    <div className=''>
         <Gptseachbar/>
         <GPTmoviesuggsetion/>
     </div>

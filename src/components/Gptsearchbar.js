@@ -52,9 +52,9 @@ const Gptseachbar = () => {
 
   };
   return (
-    <div className=" w-full   py-40 rounded-lg relative border-red  ">
+    <div className=" w-full   py-40 rounded-lg relative border-red   ">
       <form
-        className="  px-20 py-2 flex gap-2 justify-center"
+        className="  px-30  py-2 flex ml-10 gap-2 justify-center mt-8 md:px-20"
         onSubmit={(e) =>e.preventDefault()}
       >
         <input
@@ -62,7 +62,7 @@ const Gptseachbar = () => {
           name="search"
           ref={searchText}
 
-          className="w-3/4 bg border py-3 rounded-full"
+          className="md:w-3/4 bg border md:py-3 w-full rounded-xl  md:rounded-full"
           placeholder={lang[langKey].gptSearchPlaceholder}
         ></input>
         <button

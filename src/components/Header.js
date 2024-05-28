@@ -55,12 +55,12 @@ const Header = () => {
   };
 
   return (
-    <div className="flex item-center   justify-between w-screen absolute px-8 py-1 background bg-gradient-to-b from-black z-10">
+    <div className="flex flex-col  item-center mb-4  w-screen absolute px-8 py-1  background bg-gradient-to-b from-black z-10 md:flex-row md:justify-between ">
       <div>
-        <h1 className="text-[#e50914]  text-3xl mt-7 font-bold"> StreamGPT</h1>
+        <h1 className="text-[#e50914] md:mb-3 text-3xl   md:text-[2rem] mt-7 font-bold "> StreamGPT</h1>
       </div>
       {user && (
-        <div className="flex gap-10 mt-6 items-center">
+        <div className="flex md:gap-10 gap-3 mt-2 items-center">
           {showGptSearch && (
             <select
               onChange={handlelanguageChange}
@@ -75,7 +75,7 @@ const Header = () => {
           )}{" "}
           <button
             onClick={handleGptSearch}
-            className="w-30 bg-transparent border px-10 py-2 text-white text-lg fotn-bold rounded-2xl active:bg-[#a1179d] "
+            className="w-30 bg-transparent border px-6 text-xl   md:py-2 text-white md:text-lg fotn-bold rounded-2xl active:bg-[#a1179d] "
           >
             {showGptSearch? "HomePage":"GPt Search"}
           </button>
@@ -86,7 +86,7 @@ const Header = () => {
           />
           <button
             onClick={handleSignOut}
-            className="text-lg mr-3 active:bg-[#e50914] bg-transparent border font-bold px-3 py-2 rounded-2xl text-white"
+            className="md:text-lg text-sm mr-3 active:bg-[#e50914] bg-transparent border font-bold px-3 py-2 rounded-2xl text-white"
           >
             Sign Out
           </button>
