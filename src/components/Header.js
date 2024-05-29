@@ -57,7 +57,7 @@ const Header = () => {
   return (
     <div className="flex flex-col  item-center mb-4  w-screen absolute px-8 py-1  background bg-gradient-to-b from-black z-10 md:flex-row md:justify-between ">
       <div className="">
-        <h1 className="text-[#e50914] md:mb-3 text-3xl   md:text-[2rem] mt-2 font-bold "> StreamGPT</h1>
+        <h1 className="text-[#e50914] md:mb-3 text-3xl   md:text-[2rem] md:mt-6 mt-3 font-bold "> StreamGPT</h1>
       </div>
       {user && (
         <div className="flex   md:gap-10 gap-1 mt-2 md:items-center">
