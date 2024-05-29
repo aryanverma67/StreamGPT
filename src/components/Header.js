@@ -56,15 +56,15 @@ const Header = () => {
 
   return (
     <div className="flex flex-col  item-center mb-4  w-screen absolute px-8 py-1  background bg-gradient-to-b from-black z-10 md:flex-row md:justify-between ">
-      <div>
-        <h1 className="text-[#e50914] md:mb-3 text-3xl   md:text-[2rem] mt-7 font-bold "> StreamGPT</h1>
+      <div className="">
+        <h1 className="text-[#e50914] md:mb-3 text-3xl   md:text-[2rem] mt-2 font-bold "> StreamGPT</h1>
       </div>
       {user && (
-        <div className="flex md:gap-10 gap-3 mt-2 items-center">
+        <div className="flex   md:gap-10 gap-1 mt-2 md:items-center">
           {showGptSearch && (
             <select
               onChange={handlelanguageChange}
-              className="px-3 hover:bg-[#e50914] py-2 bg-transparent border text-white rounded-2xl font-semibold"
+              className="md:px-3 px-1  hover:bg-[#e50914] md:py-2 py-1 bg-transparent border text-white rounded-2xl font-semibold"
             >
               {SUPPORTED_LANGUAGES.map((lang) => (
                 <option key={lang.identifier} value={lang.identifier}>
@@ -75,7 +75,7 @@ const Header = () => {
           )}{" "}
           <button
             onClick={handleGptSearch}
-            className="w-30 bg-transparent border px-6 text-xl   md:py-2 text-white md:text-lg fotn-bold rounded-2xl active:bg-[#a1179d] "
+            className="w-30 bg-transparent border md:px-6 px-2 text-sm md:py-2 text-white md:text-lg fotn-bold rounded-2xl active:bg-[#a1179d] "
           >
             {showGptSearch? "HomePage":"GPt Search"}
           </button>
