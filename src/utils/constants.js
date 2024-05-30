@@ -26,4 +26,3 @@ export const API_OPTIONS =  {
 
   
 
-  export const OPEN_AI_SECRET_KEY = process.env.REACT_APP_OPEN_AI_SECRET_KEY;
